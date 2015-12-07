@@ -1,0 +1,31 @@
+[2015-12-04 14:21:05,117: WARNING/MainProcess] /Users/cdrandin/Programming/Python/celery_example/env/lib/python2.7/site-packages/celery/apps/worker.py:161: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))
+[2015-12-04 14:21:05,158: INFO/MainProcess] Connected to redis://localhost:6379//
+[2015-12-04 14:21:05,166: INFO/MainProcess] mingle: searching for neighbors
+[2015-12-04 14:21:06,171: INFO/MainProcess] mingle: all alone
+[2015-12-04 14:21:06,182: WARNING/MainProcess] w1@christophers-MacBook-Pro.local ready.
+[2015-12-04 14:26:40,574: INFO/MainProcess] sync with celery@christophers-MacBook-Pro.local
+[2015-12-04 14:32:36,254: INFO/MainProcess] Received task: proj.tasks.mul[4ace4dda-d2bc-423e-ae5c-5318caeffc65]
+[2015-12-04 14:32:36,257: INFO/MainProcess] Task proj.tasks.mul[4ace4dda-d2bc-423e-ae5c-5318caeffc65] succeeded in 0.00225164899894s: 6
+[2015-12-04 20:05:53,275: INFO/MainProcess] missed heartbeat from celery@christophers-MacBook-Pro.local
+[2015-12-07 10:16:43,187: INFO/MainProcess] missed heartbeat from celery@christophers-MacBook-Pro.local
+[2015-12-07 11:21:30,454: INFO/MainProcess] missed heartbeat from celery@christophers-MacBook-Pro.local
+[2015-12-07 11:58:36,755: INFO/MainProcess] missed heartbeat from celery@christophers-MacBook-Pro.local
+[2015-12-07 12:49:38,617: INFO/MainProcess] missed heartbeat from celery@christophers-MacBook-Pro.local
