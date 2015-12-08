@@ -9,6 +9,8 @@ class Mail(object):
     def __init__(self, login, password):
         super(Mail, self).__init__()
         self.server = smtplib.SMTP('smtp.gmail.com:587')
+        # self.server = smtplib.SMTP_SSL('smtp.gmail.com:465')
+
         self.message = None
         self.server.starttls()
         self.server.login(login, password)
