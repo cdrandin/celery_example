@@ -19,3 +19,8 @@ redis-server
 Start up Celery project tasks
 cd /Users/cdrandin/Programming/Python/celery_example
 celery -A proj worker -l info
+
+
+
+Resources:
+https://github.com/celery/celery/issues/2146

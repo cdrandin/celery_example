@@ -1,6 +1,10 @@
 from __future__ import absolute_import
-
 from proj.celery import app
+import datetime
+import sys
+sys.path.append("..")
+
+from Mail import *
 
 
 @app.task
@@ -17,13 +21,8 @@ def mul(x, y):
 def xsum(numbers):
     return sum(numbers)
 
+
 @app.task
-def send_email(frm, to, msg):
-    import smtplib
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-
-    #Next, log in to the server
-    server.login("cdrandin@gmail.com", "4:Zpb6H]fAs6y43H<Z]W7xVw")
-
-    #Send the mail
-    server.sendmail(frm, to, msg)
+def send_email(to_addr, msg):
+    mail = Mail('cdrandin@gmail.com', '4:Zpb6H]fAs6y43H<Z]W7xVw')
+    return mail.SendSimpleMessage(to_addr, msg)
