@@ -22,7 +22,9 @@ def xsum(numbers):
     return sum(numbers)
 
 
+GMAIL_EMAIL = 'noreply.usahazmat@gmail.com'
+GMAIL_PASSWORD = 'vEeryejcOvaBbyErdOonsyahogOOlARLPcX'
 @app.task
 def send_email(to_addr, msg):
-    mail = Mail('cdrandin@gmail.com', '4:Zpb6H]fAs6y43H<Z]W7xVw')
+    mail = Mail(GMAIL_EMAIL, GMAIL_PASSWORD)
     return mail.SendSimpleMessage(to_addr, msg)
