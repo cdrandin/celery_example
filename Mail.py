@@ -41,12 +41,12 @@ class Mail(object):
     def SendMessage(self, to, subject, msg):
         self.AddMessageSubject(subject)
         self.AddTextMessage(msg)
-        return self.__Send(to)
+        return self.__send(to)
 
     def SendImage(self, to, subject, img_file_path):
         self.AddMessageSubject(subject)
         self.AddImageMessage(img_file_path)
-        return self.__Send(to)
+        return self.__send(to)
 
     def SendSimpleMessage(self, to, msg):
         return self.SendMessage(to, '', msg)
@@ -60,7 +60,7 @@ class Mail(object):
     def Quit(self):
         self.server.quit()
 
-    def __Send(self, to, wipe=True):
+    def __send(self, to, wipe=True):
         result = None
         if self.message is None:
             print 'Message has not been built'

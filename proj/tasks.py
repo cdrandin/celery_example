@@ -21,6 +21,9 @@ def mul(x, y):
 def xsum(numbers):
     return sum(numbers)
 
+def write(msg):
+    with open('file.txt', 'a+') as outfile:
+        outfile.write(msg+'\n')
 
 GMAIL_EMAIL = 'noreply.usahazmat@gmail.com'
 GMAIL_PASSWORD = 'vEeryejcOvaBbyErdOonsyahogOOlARLPcX'

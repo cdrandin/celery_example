@@ -5,8 +5,12 @@ Start up Redis server
 
 Start up Celery project tasks
 dir “C:\Users\ServerAdmin\Documents\celery_example”
+
+// foreground
 celery -A proj worker -l info --pool=solo
 
+// background
+celery multi start w1 -A proj -l info --pool=solo
 
 Now task queue is ready.
 
@@ -18,8 +22,12 @@ redis-server
 
 Start up Celery project tasks
 cd /Users/cdrandin/Programming/Python/celery_example
+
+// foreground
 celery -A proj worker -l info
 
+// background
+celery multi start w1 -A proj -l info
 
 
 Resources:
