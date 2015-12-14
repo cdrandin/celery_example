@@ -8,7 +8,9 @@ import datetime
 def main():
     filepath = os.path.join(os.path.dirname(
         os.path.realpath(__file__)), 'file.txt')
+
     with open(filepath, 'a+') as outfile:
+        print 'Writing to %s' % filepath
         outfile.write('[%s]: %s' % (datetime.datetime.now(), 'hello world!'))
 
     # in_1_min = datetime.datetime.utcnow() + datetime.timedelta(seconds=60)
