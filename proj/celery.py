@@ -18,22 +18,23 @@ app.conf.update(
     CELERY_ENABLE_UTC = True,
     CELERY_TIMEZONE = 'US/Pacific',
 
-    CELERYBEAT_SCHEDULE = {
-        'mul_every_min': {
-            'task': 'proj.tasks.mul',
-            'schedule': datetime.timedelta(seconds=30), # crontab(minute='*'), # Execute every minute.
-            'args': (2, 3),
-            # 'args': ('cdrandin@hotmail.com', str(datetime.datetime.now())),
-        },
-    }
+    # CELERYBEAT_SCHEDULE = {
+    #     'send_email_every_min': {
+    #         'task': 'proj.tasks.send_email',
+    #         'schedule': crontab(minute='*'), # Execute every minute.
+    #         'args': ('cdrandin@hotmail.com', 'Subject', 'Howdy!'),
+    #     },
+    # }
 )
 
 if __name__ == '__main__':
     app.start()
 
+# 1 step process
 # get celerybeat to work 
 # celery -A proj worker -B -l info
 
+# 2 step process
 # or use celery -A proj beat
 # to setup scheduler
 

@@ -4,7 +4,8 @@ import datetime
 import sys
 sys.path.append("..")
 
-from Mail import *
+from gmail import GMail
+from gmail import Message
 
 
 @app.task
@@ -21,13 +22,24 @@ def mul(x, y):
 def xsum(numbers):
     return sum(numbers)
 
-def write(msg):
+
+@app.task
+def writeDatetimeNow(msg):
     with open('file.txt', 'a+') as outfile:
-        outfile.write(msg+'\n')
+        outfile.write(str(datetime.datetime.now()))
 
 GMAIL_EMAIL = 'noreply.usahazmat@gmail.com'
 GMAIL_PASSWORD = 'vEeryejcOvaBbyErdOonsyahogOOlARLPcX'
+
+
 @app.task
-def send_email(to_addr, msg):
-    mail = Mail(GMAIL_EMAIL, GMAIL_PASSWORD)
-    return mail.SendSimpleMessage(to_addr, msg)
+def send_email(to_addr, subject, msg):
+    mail = GMail(GMAIL_EMAIL, GMAIL_PASSWORD)
+    mail.connect()
+
+    if to_addr is list:
+        to_addr = ', '.join(list(to_addr))
+
+    mail.send(Message(subject, to=to_addr, html=msg))
+    mail.close()
+
