@@ -11,7 +11,7 @@ def main():
 
     with open(filepath, 'a+') as outfile:
         print 'Writing to %s' % filepath
-        outfile.write('[%s]: %s' % (datetime.datetime.now(), 'hello world!'))
+        outfile.write('[%s]: %s' % (datetime.datetime.now(), 'hello world!\n'))
 
     # in_1_min = datetime.datetime.utcnow() + datetime.timedelta(seconds=60)
 
